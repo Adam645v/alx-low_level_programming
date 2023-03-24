@@ -3,7 +3,7 @@
 #include <time.h>
 
 /**
-* positive_or_negative - my fonction
+* positive_or_negative - tells is n positive or negative
 *@n: the number
 *
 * Return: Always 0 (Success)
