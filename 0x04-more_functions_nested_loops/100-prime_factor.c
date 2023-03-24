@@ -1,31 +1,39 @@
 #include <stdio.h>
+#include <math.h>
 
 /**
- * main - Prints all possible combinations of two different digits,
- *        in ascending order, separated by a comma followed by a space.
- *
- * Return: Always 0.
+ * main - finds and prints the largest prime factor of the number 612852475143
+ * followed by a new line
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-	int digit1, digit2;
+	long int n;
+	long int max;
+	long int i;
 
-	for (digit1 = 0; digit1 < 9; digit1++)
+	n = 612852475143;
+	max = -1;
+
+	while (n % 2 == 0)
 	{
-		for (digit2 = digit1 + 1; digit2 < 10; digit2++)
-		{
-			putchar((digit1 % 10) + '0');
-			putchar((digit2 % 10) + '0');
+		max = 2;
+		n /= 2;
+	}
 
-			if (digit1 == 8 && digit2 == 9)
-				continue;
-			
-			putchar(',');
-			putchar(' ');
+	for (i = 3; i <= sqrt(n); i = i + 2)
+	{
+		while (n % i == 0)
+		{
+			max = i;
+			n = n / i;
 		}
 	}
 
-	putchar('\n');
+	if (n > 2)
+		max = n;
+
+	printf("%ld\n", max);
 
 	return (0);
 }
